@@ -1,6 +1,6 @@
 # Physics-Guided Motion Loss for Video Generation Model
 
-This is the project page for "Physics-Guided Motion Loss for Video Generation Model".
+This is the lightweight project page for "Physics-Guided Motion Loss for Video Generation Model".
 
 ## Template
 
@@ -17,4 +17,4 @@ The Nerfies website is licensed under Creative Commons Attribution-ShareAlike 4.
 - `static/js/`
 - `static/images/favicon.svg`
 
-Local paper figures and result strips are referenced from the repository root, `images/`, and `result/`.
+The deployed page intentionally keeps only the pipeline figure and a small number of representative result strips.

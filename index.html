@@ -43,9 +43,7 @@
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
       <a class="navbar-item" href="https://bowenxue.me/">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
+        Home
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
@@ -53,22 +51,12 @@
           Sections
         </a>
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="#abstract">
-            Abstract
-          </a>
-          <a class="navbar-item" href="#method">
-            Method
-          </a>
-          <a class="navbar-item" href="#results">
-            Results
-          </a>
-          <a class="navbar-item" href="#bibtex">
-            BibTeX
-          </a>
+          <a class="navbar-item" href="#pipeline">Pipeline</a>
+          <a class="navbar-item" href="#abstract">Abstract</a>
+          <a class="navbar-item" href="#results">Results</a>
         </div>
       </div>
     </div>
-
   </div>
 </nav>
 
@@ -99,56 +87,25 @@
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
               <span class="link-block">
-                <a href="#abstract"
+                <a href="#pipeline"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
+                  <span>Pipeline</span>
                 </a>
               </span>
               <span class="link-block">
                 <a href="#abstract"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
                   <span>Abstract</span>
                 </a>
               </span>
-              <!-- Video Link. -->
               <span class="link-block">
                 <a href="#results"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-film"></i>
-                  </span>
                   <span>Results</span>
                 </a>
               </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="#bibtex"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-quote-right"></i>
-                  </span>
-                  <span>BibTeX</span>
-                </a>
-              </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <span class="external-link button is-normal is-rounded is-light">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code Coming Soon</span>
-                </span>
-              </span>
             </div>
-
           </div>
         </div>
       </div>
@@ -156,48 +113,15 @@
   </div>
 </section>
 
-<section class="hero teaser">
+
+<section class="hero teaser" id="pipeline">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img id="teaser" src="./images/0000our.jpg"
-           alt="Generated rocket sequence from our method.">
+      <img id="teaser" src="./pipeline.png"
+           alt="Pipeline for the physics-guided motion loss.">
       <h2 class="subtitle has-text-centered">
-        A frequency-domain motion prior improves the physical plausibility of video diffusion models.
+        A compact frequency-domain loss regularizes generated motion without changing the video model architecture.
       </h2>
-    </div>
-  </div>
-</section>
-
-
-<section class="hero is-light is-small" id="results">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <img src="./images/0000our.jpg"
-               alt="Ours: rocket landing sequence.">
-        </div>
-        <div class="item item-chair-tp">
-          <img src="./images/0014our.jpg"
-               alt="Ours: freight train sequence.">
-        </div>
-        <div class="item item-shiba">
-          <img src="./images/0023our.jpg"
-               alt="Ours: lighthouse beacon sequence.">
-        </div>
-        <div class="item item-fullbody">
-          <img src="./result/translationour.jpg"
-               alt="Ours: translation sequence.">
-        </div>
-        <div class="item item-blueshirt">
-          <img src="./result/rotationour.jpg"
-               alt="Ours: rotation sequence.">
-        </div>
-        <div class="item item-mask">
-          <img src="./result/zoomour2.jpg"
-               alt="Ours: scaling sequence.">
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -205,7 +129,6 @@
 
 <section class="section" id="abstract">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
@@ -222,91 +145,44 @@
             of frequency coefficients while preserving more than 97% of spectral energy.
           </p>
           <p>
-            Applied to Open-Sora, MVDIT, and Hunyuan, our approach improves motion accuracy and
-            action recognition on OpenVID-1M while maintaining visual quality. User studies show
-            74--83% preference for our physics-enhanced videos, indicating that simple global
-            spectral cues are an effective drop-in regularizer for physically plausible motion in
-            video diffusion.
+            Applied to video diffusion backbones such as Open-Sora, MVDIT, and Hunyuan, the loss
+            improves motion accuracy, temporal consistency, and text-video alignment while
+            maintaining visual quality.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered" id="method">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Method Overview</h2>
-        <div class="content has-text-justified">
-          <p>
-            From each generated video, we compute a low-pass 3D Fourier representation and evaluate
-            spectral losses that correspond to translation, rotation, and scaling. The losses are
-            adaptively combined into a motion-aware training signal.
-          </p>
-        </div>
-        <img src="./figureX_sim2_puref2.png"
-             alt="SIM(2) spectral signatures used by the proposed loss.">
-      </div>
-    </div>
-    <!--/ Paper video. -->
   </div>
 </section>
 
 
-<section class="section">
+<section class="section" id="results">
   <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Ours vs. Baseline</h2>
-          <p>
-            On canonical motion prompts, the baseline often stalls, reverses direction, or changes
-            scale abruptly. Our frequency-domain loss encourages coherent displacement and smoother
-            apparent motion.
-          </p>
-          <img src="./result/translationour.jpg"
-               alt="Ours translation result.">
-          <br>
-          <img src="./result/translationbase.jpg"
-               alt="Baseline translation result.">
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">User Study</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              In two-alternative forced choice studies, users consistently preferred our videos for
-              visual quality, motion naturalness, and text-video alignment.
-            </p>
-            <img src="./user_study_results.png"
-                 alt="User study results.">
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <!--/ Matting. -->
-
-    <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Additional Results</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Hunyuan comparisons</h3>
+        <h2 class="title is-3">Results</h2>
         <div class="content has-text-justified">
           <p>
-            Our loss improves the temporal evolution of objects and scene-level motion while
-            preserving the generated appearance.
+            Below are representative frame strips. The proposed loss produces smoother,
+            more coherent motion than the baseline on simple projected motion prompts.
           </p>
         </div>
+
+        <div class="columns is-centered">
+          <div class="column">
+            <h3 class="title is-4">Translation</h3>
+            <div class="content">
+              <p>Ours</p>
+              <img src="./result/translationour.jpg"
+                   alt="Ours translation result.">
+              <br>
+              <p>Baseline</p>
+              <img src="./result/translationbase.jpg"
+                   alt="Baseline translation result.">
+            </div>
+          </div>
+        </div>
+
         <div class="columns is-vcentered interpolation-panel">
           <div class="column is-6 has-text-centered">
             <img src="./images/0014our.jpg"
@@ -321,155 +197,25 @@
             <p class="is-bold">Baseline</p>
           </div>
         </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Quantitative evaluation</h3>
-        <div class="content has-text-justified">
-          <p>
-            Across Open-Sora, MVDIT, and Hunyuan, the physics-guided loss improves temporal
-            coherence, motion quality, and text alignment.
-          </p>
-        </div>
-        <div class="table-container">
-          <table class="table is-bordered is-striped is-hoverable is-fullwidth">
-            <thead>
-              <tr>
-                <th>Metric</th>
-                <th>Open-Sora Base</th>
-                <th>Open-Sora Ours</th>
-                <th>MVDIT Base</th>
-                <th>MVDIT Ours</th>
-                <th>Hunyuan Base</th>
-                <th>Hunyuan Ours</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>VQA_A &uarr;</td>
-                <td>65.15</td>
-                <td><b>69.20</b></td>
-                <td>66.65</td>
-                <td><b>69.30</b></td>
-                <td>73.85</td>
-                <td><b>74.79</b></td>
-              </tr>
-              <tr>
-                <td>Warping Error &darr;</td>
-                <td>0.0089</td>
-                <td><b>0.0056</b></td>
-                <td>0.0080</td>
-                <td><b>0.0062</b></td>
-                <td>0.0024</td>
-                <td><b>0.0016</b></td>
-              </tr>
-              <tr>
-                <td>Temporal Consistency &uarr;</td>
-                <td>61.45</td>
-                <td><b>63.82</b></td>
-                <td>62.21</td>
-                <td><b>64.73</b></td>
-                <td>63.65</td>
-                <td><b>66.03</b></td>
-              </tr>
-              <tr>
-                <td>Action Recognition &uarr;</td>
-                <td>60.77</td>
-                <td><b>69.71</b></td>
-                <td>62.34</td>
-                <td><b>69.70</b></td>
-                <td>68.93</td>
-                <td><b>73.15</b></td>
-              </tr>
-              <tr>
-                <td>Motion Accuracy &uarr;</td>
-                <td>44.00</td>
-                <td><b>49.00</b></td>
-                <td>44.00</td>
-                <td><b>51.00</b></td>
-                <td>56.00</td>
-                <td><b>59.00</b></td>
-              </tr>
-              <tr>
-                <td>Text-Video Alignment &uarr;</td>
-                <td>54.02</td>
-                <td><b>61.05</b></td>
-                <td>61.04</td>
-                <td><b>63.62</b></td>
-                <td>59.60</td>
-                <td><b>65.34</b></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!--/ Re-rendering. -->
-
       </div>
     </div>
-    <!--/ Animation. -->
-
-
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Summary</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            The method is architecture-agnostic, uses only a compact low-pass frequency subset, and
-            can be inserted as a training-time regularizer for video diffusion backbones.
-          </p>
-          <p>
-            The page source is adapted from the official <a href="https://nerfies.github.io/">Nerfies</a>
-            project page.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Concurrent Work. -->
-
-  </div>
-</section>
-
-
-<section class="section" id="bibtex">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@misc{xue2026physicsguidedmotionloss,
-  title  = {Physics-Guided Motion Loss for Video Generation Model},
-  author = {Xue, Bowen and Guarnera, Giuseppe Claudio and Zhao, Shuang and Montazeri, Zahra},
-  year   = {2026},
-  note   = {Project page}
-}</code></pre>
   </div>
 </section>
 
 
 <footer class="footer">
   <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="#abstract">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/nerfies/nerfies.github.io" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
           <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This page adapts the source code of the
+            <a href="https://nerfies.github.io/">Nerfies</a> project page.
           </p>
           <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of the Nerfies
-            website, which this page adapts. Please link back to the original Nerfies page when
-            reusing the template.
+            The Nerfies website is licensed under a
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
         </div>
       </div>
