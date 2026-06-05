@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=full-pipeline">
+  <link rel="stylesheet" href="./static/css/index.css?v=standard-results-layout">
   <link rel="icon" href="./static/images/favicon.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -120,7 +120,7 @@
 
 
 <section class="hero teaser" id="pipeline">
-  <div class="container is-fluid pipeline-container">
+  <div class="container is-max-desktop pipeline-container">
     <div class="hero-body">
       <figure class="pipeline-figure">
         <img id="teaser" src="./pipeline-full.png"
@@ -175,34 +175,36 @@
           </p>
         </div>
 
-        <div class="columns is-centered">
-          <div class="column">
+        <div class="result-grid">
+          <article class="result-card">
             <h3 class="title is-4">Translation</h3>
-            <div class="content">
-              <p>Ours</p>
+            <p class="result-caption">A ball moving from right to left.</p>
+            <div class="result-strip">
+              <span class="result-label">Ours</span>
               <img src="./result/translationour.jpg"
                    alt="Ours translation result.">
-              <br>
-              <p>Baseline</p>
+            </div>
+            <div class="result-strip">
+              <span class="result-label">Baseline</span>
               <img src="./result/translationbase.jpg"
                    alt="Baseline translation result.">
             </div>
-          </div>
-        </div>
+          </article>
 
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-6 has-text-centered">
-            <img src="./images/0014our.jpg"
-                 class="interpolation-image"
-                 alt="Ours freight train sequence.">
-            <p>Ours</p>
-          </div>
-          <div class="column is-6 has-text-centered">
-            <img src="./images/0014base.jpg"
-                 class="interpolation-image"
-                 alt="Baseline freight train sequence.">
-            <p class="is-bold">Baseline</p>
-          </div>
+          <article class="result-card">
+            <h3 class="title is-4">Curved Motion</h3>
+            <p class="result-caption">A freight train arcs through a canyon.</p>
+            <div class="result-strip">
+              <span class="result-label">Ours</span>
+              <img src="./images/0014our.jpg"
+                   alt="Ours freight train sequence.">
+            </div>
+            <div class="result-strip">
+              <span class="result-label">Baseline</span>
+              <img src="./images/0014base.jpg"
+                   alt="Baseline freight train sequence.">
+            </div>
+          </article>
         </div>
       </div>
     </div>
