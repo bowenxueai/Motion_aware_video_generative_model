@@ -19,7 +19,7 @@ body {
 
 
 .teaser .hero-body {
-  padding-top: 0;
+  padding-top: 1rem;
   padding-bottom: 3rem;
 }
 
@@ -154,4 +154,30 @@ body {
 }
 #interpolation-image-wrapper img {
   border-radius: 5px;
+}
+
+#pipeline {
+  scroll-margin-top: 3.5rem;
+}
+
+.pipeline-figure {
+  margin: 0 auto 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.pipeline-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 768px) {
+  .pipeline-figure {
+    padding: 0.75rem;
+  }
 }
