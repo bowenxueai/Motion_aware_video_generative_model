@@ -160,18 +160,26 @@ body {
   scroll-margin-top: 3.5rem;
 }
 
+.pipeline-container {
+  max-width: 1680px;
+}
+
 .pipeline-figure {
   margin: 0 auto 1.25rem;
   padding: 1.25rem;
   border: 1px solid #e5e5e5;
   border-radius: 10px;
   background: #fff;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .pipeline-figure img {
   display: block;
-  width: 100%;
+  width: 1600px;
+  max-width: none;
   height: auto;
+  margin: 0 auto;
   object-fit: contain;
 }
 
